@@ -64,18 +64,14 @@
     const key = document.querySelectorAll('.key');
     const audio = document.querySelectorAll('audio');
     const a1 = document.querySelector('.a1');
-    const playAudio = async (keyData, key) => {
+    const playAudio = (keyData, key) => {
       for (const a of audio) {
         const audioKeyData = a.getAttribute('data-key');
         if (audioKeyData === keyData) {
-          try {
-            await a.play();
-            setTimeout(() => {
-              key.classList.remove('playing');
-            }, 200);
-          } catch (err) {
-            console.log(err.message)
-          }
+          a.play();
+          setTimeout(() => {
+            key.classList.remove('playing');
+          }, 200);
         }
       }
     }
